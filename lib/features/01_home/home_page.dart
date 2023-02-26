@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
               title: Text("Profile"),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
-                Navigator.pushNamed(context, Routes.profileRoute);
+                // Navigator.pushNamed(context, Routes.profileRoute);
               },
             ),
             const ListTile(
