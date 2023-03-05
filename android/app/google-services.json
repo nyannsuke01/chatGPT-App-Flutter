@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "520006709880",
+    "project_id": "flutter-chat-gpt-75871",
+    "storage_bucket": "flutter-chat-gpt-75871.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520006709880:android:c2497cfdf28a2ee1b2738d",
+        "android_client_info": {
+          "package_name": "com.example.chat_gpt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520006709880-o6kh1ap1uapai5l9uudsh8mvbcn1lbeo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQP3SeTj1_ubACXRkKXA61qqoTjNODoBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520006709880-h85v8jlnfvqhuhdb7iumvcre1q7mvol1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

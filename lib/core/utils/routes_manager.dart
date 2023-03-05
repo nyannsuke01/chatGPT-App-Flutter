@@ -1,3 +1,4 @@
+import 'package:chat_gpt/features/05_drower/presentation/pages/signin_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/02_image_generation/presentation/pages/detail_image_page.dart';
@@ -17,7 +18,8 @@ class Routes {
   static const String chatRoute = '/chat';
   static const String detailRoute = '/image_detail';
   static const String settingRoute = '/settting';
-  // static const String profileRoute = '/profile';
+  // static const String profileRoute = '/profile';signIn
+  static const String signInRoute = '/signIn';
 }
 
 class RouteGenerator {
@@ -55,7 +57,12 @@ class RouteGenerator {
       // case Routes.profileRoute:
       //   return MaterialPageRoute(
       //     builder: (_) => ProfilePage(),
-      //   );
+      //   );signIn
+
+      case Routes.signInRoute:
+      // return MaterialPageRoute(
+      //   builder: (_) => SignInPage(),
+      // );
       default:
         return unDefinedRoute();
     }
