@@ -35,7 +35,11 @@ class HomePage extends StatelessWidget {
               title: Text("Profile"),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
-                // Navigator.pushNamed(context, Routes.profileRoute);
+                // if(FirebaseAuth.instance.currentUser == null) {
+                //   builder: (context) => LoginPage()
+                // } else {
+                //   // Navigator.pushNamed(context, Routes.profileRoute);
+                // }
               },
             ),
             const ListTile(
@@ -118,7 +122,9 @@ class HomePage extends StatelessWidget {
                   textData: "Chat ",
                   iconData: Icons.chat_bubble_rounded,
                   onTap: () {
-                    _launchURL('https://chat.openai.com/');
+                    Navigator.pushNamed(context, Routes.chatRoute);
+
+                    // _launchURL('https://chat.openai.com/');
                   },
                 ),
               ],
