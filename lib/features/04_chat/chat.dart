@@ -1,11 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_chatgpt_api/flutter_chatgpt_api.dart';
-
 import '../../app/constants.dart';
-import 'chat_message_widget.dart';
 import 'package:http/http.dart' as http;
+import 'chat_message_widget.dart';
 
 class ChatPage extends StatefulWidget {
   @override
@@ -14,7 +11,7 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   final TextEditingController _messageController = TextEditingController();
-  final List<String> _messages = [];
+  final List<ChatMessage> _messages = [];
 
   Future<void> _sendMessage(String message) async {
     _messageController.clear();
@@ -35,8 +32,14 @@ class _ChatPageState extends State<ChatPage> {
 
     final data = jsonDecode(response.body);
     setState(() {
-      _messages.add('You: $message');
-      _messages.add('AI: ${data["choices"][0]["message"]["content"]}');
+      _messages.add(ChatMessage(
+        role: 'You',
+        message: message,
+      ));
+      _messages.add(ChatMessage(
+        role: 'AI',
+        message: data["choices"][0]["message"]["content"],
+      ));
     });
   }
 
@@ -51,12 +54,10 @@ class _ChatPageState extends State<ChatPage> {
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8.0,
-                    vertical: 4.0,
-                  ),
-                  child: Text(_messages[index]),
+                final chatMessage = _messages[index];
+                return ChatMessageWidget(
+                  role: chatMessage.role,
+                  message: chatMessage.message,
                 );
               },
               itemCount: _messages.length,

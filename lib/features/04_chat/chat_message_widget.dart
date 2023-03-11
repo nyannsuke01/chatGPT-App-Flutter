@@ -1,67 +1,33 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_chatgpt_api/flutter_chatgpt_api.dart';
 
-import 'chat.dart';
+class ChatMessage {
+  final String role;
+  final String message;
+
+  ChatMessage({required this.role, required this.message});
+}
 
 class ChatMessageWidget extends StatelessWidget {
-  const ChatMessageWidget(
-      {super.key, required this.text, required this.chatMessageType});
+  final String role;
+  final String message;
 
-  final String text;
-  final ChatMessageType chatMessageType;
+  ChatMessageWidget({required this.role, required this.message});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10.0),
-      padding: const EdgeInsets.all(16),
-      color: chatMessageType == ChatMessageType.bot
-          ? botBackgroundColor
-          : backgroundColor,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          chatMessageType == ChatMessageType.bot
-              ? Container(
-                  margin: const EdgeInsets.only(right: 16.0),
-                  child: CircleAvatar(
-                    backgroundColor: const Color.fromRGBO(16, 163, 127, 1),
-                    child: Image.asset(
-                      'assets/bot.png',
-                      color: Colors.white,
-                      scale: 1.5,
-                    ),
-                  ),
-                )
-              : Container(
-                  margin: const EdgeInsets.only(right: 16.0),
-                  child: const CircleAvatar(
-                    child: Icon(
-                      Icons.person,
-                    ),
-                  ),
-                ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.all(8.0),
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  ),
-                  child: Text(
-                    text,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge
-                        ?.copyWith(color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      alignment: role == 'You' ? Alignment.centerRight : Alignment.centerLeft,
+      child: Column(
+        crossAxisAlignment:
+            role == 'You' ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        children: [
+          Text(
+            role,
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
+          SizedBox(height: 8),
+          Text(message),
         ],
       ),
     );
