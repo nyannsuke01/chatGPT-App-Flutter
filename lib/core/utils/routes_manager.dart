@@ -1,4 +1,3 @@
-import 'package:chat_gpt/features/05_drower/presentation/pages/signin_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/02_image_generation/presentation/pages/detail_image_page.dart';
@@ -43,7 +42,7 @@ class RouteGenerator {
         );
       case Routes.chatRoute:
         return MaterialPageRoute(
-          builder: (_) => const ChatPage(),
+          builder: (_) => ChatPage(),
         );
       case Routes.detailRoute:
         final imageUrl = settings.arguments as String;
