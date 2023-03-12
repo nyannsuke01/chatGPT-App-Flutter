@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class ChatMessage {
   final String role;
@@ -27,7 +28,13 @@ class ChatMessageWidget extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8),
-          Text(message),
+          AnimatedTextKit(
+            animatedTexts: [
+              TypewriterAnimatedText(message,
+                  speed: Duration(milliseconds: 100)),
+            ],
+            totalRepeatCount: 1,
+          ),
         ],
       ),
     );
